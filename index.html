@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Family Expense Tracker Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #2b7de9;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .tab-content {
+            display: none;
+            padding: 40px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        h1, h2, h3 {
+            color: #2b7de9;
+        }
+        .title {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
+        window.onload = function () {
+            showTab('main');
+        };
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="#" onclick="showTab('main')">Main Page</a>
+        <a href="#" onclick="showTab('enhancement')">Software Design and Engineering Enhancements</a>
+    </nav>
+
+    <div id="main" class="tab-content">
+        <h1 class="title">Mohammed Khan CS499 ePortfolio</h1>
+        <h2>Intruduction</h2>
+        <p>Hello! My name is Mohammed Khan and this ePortfolio highlights the growth and development I achieved during my Computer Science capstone project. This work reflects not only the technical skills I developed, but also how I used real world design and engineering practices to build, test, and deploy a functioning application.</p>
+
+        <h2>Self Assessment</h2>
+        <p>Throughout this program, I will learn how to write clean and modular code, solve problems using algorithms, and integrate database solutions. I will learn to think about the user experience and how to design apps that are not only functional but also advanced features to use. This capstone project brings together everything I learned throughout my journey at SNHU and the enhancement strategies suggested by my professor to take my project to a professional level.</p>
+
+        <h2>About My Artifact</h2>
+        <p>The main artifact in this ePortfolio is the Family Expense Tracker, an open source budgeting web app I found using Python and Streamlit. It was initially as a basic one-page script and I will work on making it fully modular and testable application with features like data validation, logging, visual charts, gamification, Docker deployment and much more. Its hosted online through Streamlit Cloud to make it publicly accessible and easier to demonstrate.</p>
+        
+        <h2>Code</h2>
+        Click <a href="https://github.com/mohammedkhan2024/CS499/" target="_blank">here</a> to access code files.
+    </div>
+
+    <div id="enhancement" class="tab-content">
+        <h1 class="title">Enhancement One: Software Design and Engineering</h1>
+        <h3>Artifact Name: Family Expense Tracker App</h3>
+
+        <h3>1. Description of the Artifact</h3>
+        <strong>What the App Is</strong>
+        <p>The Family Expense Tracker App is a budgeting and expense management web app built using Python and Streamlit. It is designed to help users add family members, record expenses, track spending patterns, and view financial summaries.</p>
+
+        <strong>Why It Needed Enhancement</strong>
+        <p>When I first found the Family Expense Tracker app, it was built as a single long Python file. The logic, user interface, data management, and layout all existed together in one long script. Due to the fact that the entire app was written in one script, it made it hard to manage, hard to test, and nearly impossible to scale or improve without breaking something. Features like error handling, form validation, and session tracking were completely missing. The app also used the default Streamlit styling, which looked plain and did not provide a helpful or guided experience for users.</p>
+
+        <p>There were no charts, no weekly or daily tracking, and no sense of structure in the codebase, basically everything lived in one place. The app had no logging system to track actions or issues, and no testing setup to catch bugs early. It lacked any method of deployment and would only run on the developer’s machine after manually installing everything. There were also no motivational elements for the user, basically nothing like gamification or reward systems that would encourage better budgeting habits. In short, while the basic idea was there, the app needed significant engineering improvements to become a usable and shareable product.</p>
+
+        <h3>2. Why I Included This Artifact in My ePortfolio</h3>
+        <p>I selected this project for my ePortfolio because it demonstrates my ability to thoughtfully apply software engineering practices across the full development lifecycle. It showcases how I took a simple working idea and expanded it using both my technical skills and direct suggestions from the enhancement guidelines provided by my professor. For example, I implemented Docker containerization to meet the recommendation and added gamification features like a reward badge system to recognize consistent budget behavior.</p>
+
+        <p>The project also reflects how I used design principles from the redesign using UI/UX principles suggestion. I improved the app's layout using st.columns(), created custom visual styling through a CSS file and used clear icons and headings to improve the user experience. These enhancements are more than visual polish but they reflect thought given to accessibility and user clarity.</p>
+
+        <p>The biggest difference from the original version is the structure and quality of the code. I refactored everything into a modular design, separating business logic, validation, logging, and UI components into their own folders. I added a full input validation layer and wrapped key logic in error handling blocks to prevent crashes. I also created a tests/ folder and added tests to verify my core functions. Logging was introduced to track actions like added members or failed submissions, which is something I never had in the original version. Finally, I created a Dockerfile to allow anyone to run the app easily, which is a big improvement from needing to manually install packages and troubleshoot dependencies.</p>
+
+        <p>This artifact grew well beyond its original scope which is why it stands out as the best item to show what I can do in software design. It doesn't just show that I can build an app but it shows I can enhance and engineer a product with professionalism and purpose.</p>
+
+        <h3>3. Did I Meet My Course Outcomes?</h3>
+        <p>Yes, I met all the course outcomes I planned to address at the beginning of Module One. I designed my application to be organized, modular, reusable, and deployable. I added strong validation and error handling to make it more reliable. I improved the user experience using thoughtful UI/UX improvements. I wrote and executed unit tests, and I deployed the app using Docker for professional level distribution.</p>
+
+        <p>In addition to Docker, I used Streamlit Cloud to professionally host the app online. This allowed me to make the project publicly accessible and easy to share with a broader audience, which include potential employers. Hosting the app through a cloud platform helped me understand not only how to build an app but also how to deploy it in a real world setting.</p>
+
+        <p>I also expanded my original plan by including new elements like gamification. These additions strengthened the outcome coverage and added new areas like user motivation.</p>
+
+        <h3>4. What I Learned from This Project</h3>
+        <p>This project helped me better understand what goes into professional software design. At first, the app was a simple script, but as I broke the code into modules, I saw how clean architecture leads to better flexibility and maintainability. I learned that organizing code isn’t just about structure. it helps the app grow naturally which makes enhancements easier.</p>
+
+        <p>I also learned that good design isn’t just visual, it's how you guide and support the user. The UI/UX improvements helped make the app clearer and more enjoyable. Adding gamification shows how rewarding feedback encourages behavior of the user and makes an app feel alive. Docker helped me see the importance of packaging software properly. Now I can share my work easily and know it will run the same anywhere which is a real world skill that matters.</p>
+    </div>
+    <div id="enhancement" class="tab-content">
+        <h1>Software Design and Engineering Enhancements</h1>
+    </div>
+</body>
+</html>
