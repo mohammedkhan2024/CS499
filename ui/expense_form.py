@@ -6,6 +6,7 @@
 import streamlit as st
 from utils.validation import validate_expense_value, validate_category  # Validation functions
 from utils.logger import logger  # Logger to track expense submissions
+from utils.actions import Action
 
 def render_expense_form(session_state):
     # Section title
@@ -39,6 +40,18 @@ def render_expense_form(session_state):
                 session_state.expense_tracker.add_expense(
                     expense_value, expense_category, expense_description, expense_date
                 )
+
+                # Action object for addition and push to undo stack
+                action = Action(action_type="add_expense", item={
+                    "value": expense_value,
+                    "category": expense_category,
+                    "description": expense_description,
+                    "date": expense_date
+                })
+                session_state.undo_stack.append(action)
+
+                # Clear redo stack on new action
+                session_state.redo_stack.clear()
 
                 # Show success message
                 st.success("Expense added!")

@@ -8,9 +8,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
 
-def render_visualization(session_state):
+def render_visualization(session_state, filtered_expenses=None):
     tracker = session_state.expense_tracker
-    expenses = tracker.expense_list
+    
+    # Filtered expenses if provided, else all expenses
+    expenses = filtered_expenses if filtered_expenses is not None else tracker.expense_list
 
     # Section 1 – Pie Chart for Expense Categories
     st.markdown("### 📊 Expense Breakdown by Category")
