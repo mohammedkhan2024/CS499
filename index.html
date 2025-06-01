@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Family Expense Tracker Portfolio</title>
     <style>
         body {
@@ -22,6 +22,7 @@
             text-decoration: none;
             margin: 0 20px;
             font-size: 18px;
+            cursor: pointer;
         }
         nav a:hover {
             text-decoration: underline;
@@ -29,6 +30,8 @@
         .tab-content {
             display: none;
             padding: 40px;
+            max-width: 900px;
+            margin: auto;
         }
         .tab-content.active {
             display: block;
@@ -53,13 +56,14 @@
 </head>
 <body>
     <nav>
-        <a href="#" onclick="showTab('main')">Main Page</a>
-        <a href="#" onclick="showTab('enhancement')">Software Design and Engineering Enhancements</a>
+        <a onclick="showTab('main')">Main Page</a>
+        <a onclick="showTab('enhancement')">Software Design and Engineering Enhancements</a>
+        <a onclick="showTab('algo')">Algorithms and Data Structure Enhancements</a>
     </nav>
 
     <div id="main" class="tab-content">
         <h1 class="title">Mohammed Khan CS499 ePortfolio</h1>
-        <h2>Intruduction</h2>
+        <h2>Introduction</h2>
         <p>Hello! My name is Mohammed Khan and this ePortfolio highlights the growth and development I achieved during my Computer Science capstone project. This work reflects not only the technical skills I developed, but also how I used real world design and engineering practices to build, test, and deploy a functioning application.</p>
 
         <h2>Self Assessment</h2>
@@ -68,24 +72,27 @@
         <h2>About My Artifact</h2>
         <p>The main artifact in this ePortfolio is the Family Expense Tracker, an open source budgeting web app I found using Python and Streamlit. It was initially as a basic one-page script and I will work on making it fully modular and testable application with features like data validation, logging, visual charts, gamification, Docker deployment and much more. Its hosted online through Streamlit Cloud to make it publicly accessible and easier to demonstrate.</p>
         
-        <h2>Code</h2>
+        <h2>Family Expense Tracker App</h2>
+        Click <a href="https://family-expense-tracker.streamlit.app/" target="_blank">here</a> to access the application.
+
+        <h2>Code Repo</h2>
         Click <a href="https://github.com/mohammedkhan2024/CS499/" target="_blank">here</a> to access code files.
     </div>
 
     <div id="enhancement" class="tab-content">
         <h1 class="title">Enhancement One: Software Design and Engineering</h1>
+
         <h3>Artifact Name: Family Expense Tracker App</h3>
 
-        <h3>1. Description of the Artifact</h3>
-        <strong>What the App Is</strong>
+        <h3>What the Artifact Is and Its Purpose</h3>
         <p>The Family Expense Tracker App is a budgeting and expense management web app built using Python and Streamlit. It is designed to help users add family members, record expenses, track spending patterns, and view financial summaries.</p>
 
-        <strong>Why It Needed Enhancement</strong>
+        <h3>Why It Needed Enhancement</h3>
         <p>When I first found the Family Expense Tracker app, it was built as a single long Python file. The logic, user interface, data management, and layout all existed together in one long script. Due to the fact that the entire app was written in one script, it made it hard to manage, hard to test, and nearly impossible to scale or improve without breaking something. Features like error handling, form validation, and session tracking were completely missing. The app also used the default Streamlit styling, which looked plain and did not provide a helpful or guided experience for users.</p>
 
         <p>There were no charts, no weekly or daily tracking, and no sense of structure in the codebase, basically everything lived in one place. The app had no logging system to track actions or issues, and no testing setup to catch bugs early. It lacked any method of deployment and would only run on the developer’s machine after manually installing everything. There were also no motivational elements for the user, basically nothing like gamification or reward systems that would encourage better budgeting habits. In short, while the basic idea was there, the app needed significant engineering improvements to become a usable and shareable product.</p>
 
-        <h3>2. Why I Included This Artifact in My ePortfolio</h3>
+        <h3>Why I Included This Artifact in My ePortfolio</h3>
         <p>I selected this project for my ePortfolio because it demonstrates my ability to thoughtfully apply software engineering practices across the full development lifecycle. It showcases how I took a simple working idea and expanded it using both my technical skills and direct suggestions from the enhancement guidelines provided by my professor. For example, I implemented Docker containerization to meet the recommendation and added gamification features like a reward badge system to recognize consistent budget behavior.</p>
 
         <p>The project also reflects how I used design principles from the redesign using UI/UX principles suggestion. I improved the app's layout using st.columns(), created custom visual styling through a CSS file and used clear icons and headings to improve the user experience. These enhancements are more than visual polish but they reflect thought given to accessibility and user clarity.</p>
@@ -94,20 +101,40 @@
 
         <p>This artifact grew well beyond its original scope which is why it stands out as the best item to show what I can do in software design. It doesn't just show that I can build an app but it shows I can enhance and engineer a product with professionalism and purpose.</p>
 
-        <h3>3. Did I Meet My Course Outcomes?</h3>
+        <h3>Did I Meet My Course Outcomes?</h3>
         <p>Yes, I met all the course outcomes I planned to address at the beginning of Module One. I designed my application to be organized, modular, reusable, and deployable. I added strong validation and error handling to make it more reliable. I improved the user experience using thoughtful UI/UX improvements. I wrote and executed unit tests, and I deployed the app using Docker for professional level distribution.</p>
 
         <p>In addition to Docker, I used Streamlit Cloud to professionally host the app online. This allowed me to make the project publicly accessible and easy to share with a broader audience, which include potential employers. Hosting the app through a cloud platform helped me understand not only how to build an app but also how to deploy it in a real world setting.</p>
 
         <p>I also expanded my original plan by including new elements like gamification. These additions strengthened the outcome coverage and added new areas like user motivation.</p>
 
-        <h3>4. What I Learned from This Project</h3>
+        <h3>What I Learned from This Project</h3>
         <p>This project helped me better understand what goes into professional software design. At first, the app was a simple script, but as I broke the code into modules, I saw how clean architecture leads to better flexibility and maintainability. I learned that organizing code isn’t just about structure. it helps the app grow naturally which makes enhancements easier.</p>
 
         <p>I also learned that good design isn’t just visual, it's how you guide and support the user. The UI/UX improvements helped make the app clearer and more enjoyable. Adding gamification shows how rewarding feedback encourages behavior of the user and makes an app feel alive. Docker helped me see the importance of packaging software properly. Now I can share my work easily and know it will run the same anywhere which is a real world skill that matters.</p>
     </div>
-    <div id="enhancement" class="tab-content">
-        <h1>Software Design and Engineering Enhancements</h1>
+
+    <div id="algo" class="tab-content">
+        <h1 class="title">Algorithms and Data Structure Enhancements</h1>
+
+        <h3>Artifact Name: Family Expense Tracker App</h3>
+
+        <h3>What the Artifact Is and Its Purpose</h3>
+        <p>The artifact is the Family Expense Tracker, an app built with Python and Streamlit that helps people manage their family budget. It lets users add family members, track income and expenses, set budgets, and see where their money is going over weeks or months.</p>
+
+        <h3>Why It Was Selected</h3>
+        <p>I picked this project to improve because it uses important computer science concepts like data structures and algorithms. I wanted to make sure the app handles data correctly and safely. Adding features like undo and redo helps prevent mistakes and makes the app more reliable for users.</p>
+
+        <h3>How the Artifact Was Enhanced</h3>
+        <p>To implement algorithms and data structure features, I improved the app by adding better filtering so users can choose which expenses to see based on date, category, and amount. I also added sorting so they can organize expenses by date, amount, or category. Users can now manually pick any week or month to check their budget and spending.</p>
+        <p>To help users manage their money better, I created budget setters for both weekly and monthly budgets. Users can set their own limits, and the app tracks how much they’ve spent in selected periods. It shows how much is left and uses progress bars to visually indicate if they are staying within their budget or going over.</p>
+        <p>To make the app faster, I added a special data structure called a max-heap that quickly finds the biggest expenses. I also built an undo/redo system that remembers actions so users can easily fix mistakes. I tested these new features with different cases to make sure they work well.</p>
+
+        <h3>Connection to Course Objectives</h3>
+        <p>These improvements show that I can design smart algorithms and use data structures like heaps and stacks in real projects. I also practiced writing tests to catch problems early. The work supports the course goals of building efficiently and especially a user friendly software.</p>
+
+        <h3>Personal Reflection on the Learning Experience</h3>
+        <p>Working on these enhancements helped me understand how choosing the right data structures makes a big difference in app performance. Building undo/redo taught me how to make software more user friendly and safe. The dynamic date filtering showed me how to make apps flexible to what users need. Creating the weekly and monthly budget trackers showed me how to provide clear and helpful feedback to users about their spending habits.</p>
     </div>
 </body>
 </html>

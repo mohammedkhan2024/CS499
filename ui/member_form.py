@@ -6,6 +6,7 @@
 import streamlit as st
 from utils.validation import validate_member_name, validate_earnings  # Validation functions for input
 from utils.logger import logger  # Logger for tracking form actions
+from utils.actions import Action 
 
 def render_member_form(session_state):
     # Section title
@@ -43,6 +44,18 @@ def render_member_form(session_state):
                 session_state.expense_tracker.add_family_member(
                     member_name, earning_status, earnings
                 )
+
+                # Action for undo
+                action = Action(
+                    action_type="add_member",
+                    item={
+                        "name": member_name,
+                        "earning_status": earning_status,
+                        "earnings": earnings,
+                    }
+                )
+                session_state.undo_stack.append(action)
+                session_state.redo_stack.clear()  # Clear redo on new action
 
                 # Show confirmation message
                 st.success("Family member added!")
