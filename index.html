@@ -80,7 +80,7 @@
     </div>
 
     <div id="enhancement" class="tab-content">
-        <h1 class="title">Enhancement One: Software Design and Engineering</h1>
+        <h1 class="title">Software Design and Engineering Enhancements</h1>
 
         <h3>Artifact Name: Family Expense Tracker App</h3>
 
@@ -135,6 +135,25 @@
 
         <h3>Personal Reflection on the Learning Experience</h3>
         <p>Working on these enhancements helped me understand how choosing the right data structures makes a big difference in app performance. Building undo/redo taught me how to make software more user friendly and safe. The dynamic date filtering showed me how to make apps flexible to what users need. Creating the weekly and monthly budget trackers showed me how to provide clear and helpful feedback to users about their spending habits.</p>
+    </div>
+
+    <div id="database" class="tab-content">
+        <h1 class="title">Databases Enhancements</h1>
+
+        <h3>1. What database parts did I work on, and how do they make the appication better?</h3>
+        <p>I worked on integrating the SQLite database into the app to replace its temporary data storage for family members and expenses. This involved designing the database structure, writing code to perform CRUD operations, and updating the app's tracking and user interface components to use this new database. This significantly improves the project by providing persistent data storage and making sure user data is saved between sessions which enhanced overall reliability.</p>
+
+        <h3>2. What specific skills did I show when working on the database?</h3>
+        <p>Through my contributions to database enhancement, I demonstrated a range of specific skills. These include designing the database schema along with structuring how data is stored efficiently and writing SQL queries to interact with and manipulate the database. I also showed my ability to integrate a relational database with a Python application and refactor existing code to work seamlessly with persistent storage. Furthermore, I proved proficient in managing data consistency and converting between database records and application objects efficiently. I also practiced maintaining code modularity and applying best practices for database operations within a web application context.</p>
+
+        <h3>3. Any problems I faced during this part of the project, and how did I fix them?</h3>
+        <p>One important challenge I encountered was making sure there is a seamless conversion between database rows and model objects to maintain consistent application logic. I resolved this by implementing factory methods in my model classes which allowed easy creation of instances from database tuples. Another challenge involved managing cached data in the UI to make sure the display always showed fresh information. Thorough testing and debugging were also crucial in fixing issues related to date conversion and data persistence.</p>
+
+        <h3>4. How did I make sure the app was secure and performed well?</h3>
+        <p>To enhance security, I used parameterized SQL queries, which are important to prevent vulnerabilities like SQL injection attacks and enabled foreign key constraints in SQLite to maintain data integrity. For performance, I optimized queries by limiting data retrieval to necessary fields and used efficient data structures like heaps to quickly retrieve top expenses.</p>
+
+        <h3>5. How did I make the app easier and better for users in this part of the project?</h3>
+        <p>By integrating the database, I significantly improved the user experience by allowing data persistence so users no longer lose information upon app restarts. The interface now consistently reflects up to date and accurate information pulled directly from persistent storage. Features such as undo/redo actions and filtering, sorting, and visualization capabilities now operate reliably on a consistent dataset which provides a smoother and more dependable, and professional user experience.</p>
     </div>
 </body>
 </html>
