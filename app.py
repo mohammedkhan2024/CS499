@@ -6,19 +6,20 @@
 # and initializes stateful tracking like budget performance.
 
 import streamlit as st
+import db
 from models.tracker import FamilyExpenseTracker
-import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
 from pathlib import Path
-from datetime import datetime, timedelta
 
 # Import modular UI components
 from ui.member_form import render_member_form
 from ui.expense_form import render_expense_form
 from ui.overview import render_overview
 from ui.visualization import render_visualization
-from ui.filter_form import render_filter_form
 from ui.top_expenses import render_top_expenses
+
+# Initialize the database tables
+db.init_db()
 
 # Configure the Streamlit page title and icon
 st.set_page_config(page_title="Family Expense Tracker", page_icon="💰")
@@ -207,7 +208,7 @@ if selected == "Data Entry":
         step=10
     )
 
-    # Monthly budget setting added below weekly budget input
+    # Monthly budget setting 
     if "monthly_budget_limit" not in session_state:
         session_state.monthly_budget_limit = 1500  # Default monthly budget
 

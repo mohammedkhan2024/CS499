@@ -6,7 +6,7 @@
 import streamlit as st
 from utils.validation import validate_member_name, validate_earnings  # Validation functions for input
 from utils.logger import logger  # Logger for tracking form actions
-from utils.actions import Action 
+from utils.actions import Action  # For undo/redo action tracking
 
 def render_member_form(session_state):
     # Section title
@@ -31,21 +31,21 @@ def render_member_form(session_state):
             # If earning, allow input for earnings amount
             earnings = st.number_input("Earnings", min_value=0, value=0)
         else:
-            earnings = 0  # Redundant but makes logic explicit
+            earnings = 0  # Explicit default when not earning
 
         # Handle form submission
         if st.button("Add Member"):
             try:
-                # Validate name and earnings
+                # Validate name and earnings inputs
                 validate_member_name(member_name)
                 validate_earnings(earnings)
 
-                # Add the new family member to the tracker stored in session
+                # Add the new family member via tracker method which saves to DB
                 session_state.expense_tracker.add_family_member(
                     member_name, earning_status, earnings
                 )
 
-                # Action for undo
+                # Record this addition as an undoable action
                 action = Action(
                     action_type="add_member",
                     item={
@@ -54,16 +54,22 @@ def render_member_form(session_state):
                         "earnings": earnings,
                     }
                 )
+                # Push the action onto the undo stack
                 session_state.undo_stack.append(action)
-                session_state.redo_stack.clear()  # Clear redo on new action
+                # Clear redo stack since new action invalidates future redos
+                session_state.redo_stack.clear()
 
-                # Show confirmation message
+                # Clear cached members list in tracker to force UI refresh from DB
+                if hasattr(session_state.expense_tracker, 'members'):
+                    session_state.expense_tracker.members = []
+
+                # Show confirmation message to user
                 st.success("Family member added!")
 
-                # Log the event
+                # Log the addition event
                 logger.info(f"Added member: {member_name}, Earnings: {earnings}, Earning status: {earning_status}")
 
             except ValueError as e:
-                # Show error message and log it
+                # Show error message and log warning on validation failure
                 st.error(f"Error: {e}")
                 logger.warning(f"Failed to add member: {e}")

@@ -6,7 +6,7 @@
 
 ## Overview
 
-The Family Expense Tracker is a user friendly budgeting and expense management web application built with Python and Streamlit. Designed to help families easily track income and expenses. This app provides insights into spending habits over customizable weekly and monthly periods. It includes features such as budget setting, data visualization, undo/redo actions, and priority expense tracking using efficient algorithms and data structures.
+The Family Expense Tracker is a user-friendly budgeting and expense management web application built with Python and Streamlit. Designed to help families easily track income and expenses. This app provides insights into spending habits over customizable weekly and monthly periods. It includes features such as budget setting, data visualization, undo/redo actions, and priority expense tracking using efficient algorithms and data structures.
 
 ---
 
@@ -26,10 +26,56 @@ The Family Expense Tracker is a user friendly budgeting and expense management w
 
 ---
 
+## Database Integration
+
+- **Persistent Data Storage:** Replaced temporary in-memory storage with a SQLite database to save family members and expenses persistently.
+- **Robust CRUD Operations:** Implemented secure and efficient Create, Read, Update, and Delete database operations for all data entities.
+- **Improved Data Consistency:** Managed data integrity with foreign key constraints and safe query practices.
+- **Enhanced Performance:** Optimized queries and data structures to handle larger datasets efficiently.
+- **Seamless UI Sync:** Updated user interface components to dynamically fetch and display current data from the database.
+
+---
+
 ## Installation
 
 1. **Clone the repository:**
 
-```bash
-git clone https://github.com/mohammedkhan2024/CS499.git
-cd CS499
+    ```bash
+    git clone https://github.com/mohammedkhan2024/CS499.git
+    cd CS499
+    ```
+
+2. **Initialize the database:**
+
+    ```bash
+    python -c "import db; db.init_db()"
+    ```
+
+3. **Install dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Run the app:**
+
+    ```bash
+    streamlit run app.py
+    ```
+
+---
+
+## Usage
+
+- Add family members and expenses through the intuitive UI.
+- Set weekly and monthly budgets to monitor spending.
+- Use filters and sorting to analyze your expenses.
+- View detailed charts and download your data as CSV.
+
+---
+
+## License
+
+MIT License
+
+---

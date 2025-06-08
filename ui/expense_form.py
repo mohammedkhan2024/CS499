@@ -4,9 +4,9 @@
 # description, and date. It also handles the submission and displays success or error messages.
 
 import streamlit as st
-from utils.validation import validate_expense_value, validate_category  # Validation functions
-from utils.logger import logger  # Logger to track expense submissions
-from utils.actions import Action
+from utils.validation import validate_expense_value, validate_category 
+from utils.logger import logger  
+from utils.actions import Action 
 
 def render_expense_form(session_state):
     # Section title
@@ -36,30 +36,35 @@ def render_expense_form(session_state):
                 validate_expense_value(expense_value)
                 validate_category(expense_category)
 
-                # Add the expense to the tracker stored in session
+                # Add the expense to the tracker 
                 session_state.expense_tracker.add_expense(
                     expense_value, expense_category, expense_description, expense_date
                 )
 
-                # Action object for addition and push to undo stack
+                # Create an action object representing this addition for undo/redo
                 action = Action(action_type="add_expense", item={
                     "value": expense_value,
                     "category": expense_category,
                     "description": expense_description,
                     "date": expense_date
                 })
+                # Push the action onto the undo stack
                 session_state.undo_stack.append(action)
 
-                # Clear redo stack on new action
+                # Clear the redo stack as new action invalidates future redos
                 session_state.redo_stack.clear()
 
-                # Show success message
+                # Clear cached expense list in tracker so UI reloads fresh data from DB
+                if hasattr(session_state.expense_tracker, 'expense_list'):
+                    session_state.expense_tracker.expense_list = []
+
+                # Show success message to user
                 st.success("Expense added!")
 
-                # Log the event for tracking
+                # Log the addition event
                 logger.info(f"Added expense: ${expense_value} | {expense_category} | {expense_description} | {expense_date}")
 
             except ValueError as e:
-                # Show error message and log the failure
+                # Show error message and log warning in case of validation failure
                 st.error(f"Error: {e}")
                 logger.warning(f"Failed to add expense: {e}")
