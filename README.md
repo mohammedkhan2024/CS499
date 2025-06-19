@@ -36,6 +36,16 @@ The Family Expense Tracker is a user-friendly budgeting and expense management w
 
 ---
 
+## Application Screens
+
+- **Main Application Screen:** On this screen, users can add family members and log their expenses.
+  
+- **Data Overview Screen:** On this screen, users can see a summary of family members, view all expenses, check their financial summary, and track their weekly and monthly budgets. They can also filter expenses, view their top expenses, and get motivational badges based on their budgeting performance.
+
+- **Data Visualization Screen:** On this screen, users can explore their spending through colorful pie charts and bar graphs for better insight.
+
+---
+
 ## Installation
 
 1. **Clone the repository:**
